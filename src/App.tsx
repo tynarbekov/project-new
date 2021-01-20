@@ -12,17 +12,19 @@ import Container from '@material-ui/core/Container';
 function App() {
   return (
     <Router>
-      <Fragment>
-        <Switch>
-          <Route exact path={'/'} component={LeftDrawer} />
-          <Container maxWidth="lg">
-            <Route exact path={'/home'} component={Home} />
-            <Route exact path={'/about'} component={About} />
-            <Route exact path={'/logout'} component={LogOut} />
-            <Route exact path={'/auth/login'} component={Login} />
-          </Container>
-        </Switch>
-      </Fragment>
+      <div style={{display: 'flex'}}>
+        <LeftDrawer/>
+         <Switch>
+           <Route exact path={'/'} component={Home} />
+           <Route exact path={'/about'} component={About} />
+         </Switch>
+      </div>
+      <Switch>
+        <Container maxWidth="lg">
+          <Route exact path={'/auth/logout'} component={LogOut} />
+          <Route exact path={'/auth/login'} component={Login} />
+        </Container>
+      </Switch>
     </Router>
   )
 }
